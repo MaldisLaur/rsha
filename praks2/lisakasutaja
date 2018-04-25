@@ -1,0 +1,7 @@
+#!/bin/bash
+
+#echo "Sisesta kasutajanimi:"
+#read kasutaja
+kasutaja=$1
+useradd -m $kasutaja
+
