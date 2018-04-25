@@ -1,0 +1,7 @@
+#!/bin/bash
+
+
+for kasutaja in $(cat $kasutajad)
+	do
+		sh lisakasutaja $kasutaja
+	done
