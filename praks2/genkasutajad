@@ -1,0 +1,11 @@
+#!/bin/bash
+
+for nimi in $(date | md5sum > asd)
+	do
+		lisakasutaja $nimi
+	done
+for parool in $(date | md5sum > ahv)
+	do
+		echo $nimi:$parool | chpasswd
+	done
+
