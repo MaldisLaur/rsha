@@ -1,0 +1,5 @@
+if dpkg-query -W -f='Apache2 on installeritud' apache2
+	then echo " ilusti. "
+		else	apt-get install apache2 -y
+fi
+
