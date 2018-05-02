@@ -1,6 +1,6 @@
 #
 sh ~/rsha/praks3/apache_install
-sh ~/rsha/prask3/php_install
+sh ~/rsha/praks3/php_install
 
 
 if dpkg-query -W -f='Phpmyadmin on edukalt installeeritud.' phpmyadmin
