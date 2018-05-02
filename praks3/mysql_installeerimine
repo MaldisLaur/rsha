@@ -1,0 +1,6 @@
+#	!#/bash/bin
+
+if dpkg-query -W -f='${Status}' mysql-server
+	then echo " "
+		else apt-get install mysql-server -y
+fi
