@@ -1,11 +1,10 @@
 #!/bin/bash
 
-for nimi in $(date | md5sum > asd)
-	do
-		lisakasutaja $nimi
-	done
-for parool in $(date | md5sum > ahv)
-	do
-		echo $nimi:$parool | chpasswd
-	done
-
+while read kasutajad1
+do
+	kasutaja=$kasutajad1
+	parool=$(pwgen 7)
+	useradd -m -s /bin/bash $kasutaja
+	echo "$kasutaja parool on $parool"
+	echo "$kasutaja:$parool" >> "Genereeritud_kasutajad"
+done < $1
