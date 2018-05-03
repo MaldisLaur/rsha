@@ -4,8 +4,8 @@ sh ~/rsha/praks3/php_install
 sh ~/rsha/praks3/phpmyadmin_install
 
 
-if dpkg-query -W -f='${Status}' wordpress
-	then echo " "
+if ls /var/www/html/ | grep -c 'wordpress';
+	then echo "Wordpress on installeeritud."
 		else wget http://wordpress.org/latest.tar.gz
 		tar -xzvf latest.tar.gz
 	mkdir /var/www/html/wordpress
