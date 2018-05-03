@@ -1,0 +1,19 @@
+#
+sh ~/rsha/praks3/apache_install
+sh ~/rsha/praks3/php_install
+sh ~/rsha/praks3/phpmyadmin_install
+
+
+if dpkg-query -W -f='${Status}' wordpress
+	then echo " "
+		else wget http://wordpress.org/latest.tar.gz
+		tar -xzvf latest.tar.gz
+	mkdir /var/www/html/wordpress
+	mv wordpress /var/www/html/wordpress
+	chown -R www-data:www-data /var/www/*
+	usermod -a -G www-data user
+	echo "CREATE DATABASE wpdatabase;" | mysql -u root -pqwerty
+        echo "CREATE USER 'user@localhost' IDENTIFIED BY 'qwerty';" | mysql -u root -pqwerty
+	echo "GRANT ALL PRIVILEGES ON wpdatabase.* to user@localhost IDENTIFIED BY 'qwerty';" | mysql -u root -pqwerty
+	echo "FLUSH PRIVILEGES;" | mysql -u root -pqwerty
+fi
