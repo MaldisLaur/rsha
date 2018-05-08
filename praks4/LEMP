@@ -1,0 +1,22 @@
+if dpkg-query -W -f='Nginx on installeritud ilusti.' nginx
+	then service nginx status
+	#nginx install
+	else	apt-get install nginx -y
+	#mysql server install
+	apt-get install mysql-server -y
+	#php install
+	apt-get install php7.0 php-pear php7.0-mysql -y
+	#phpmyadmini install
+	apt-get install phpmyadmin
+	#wordpressi install ja seadistus
+	wget http://wordpress.org/latest.tar.gz
+	tar -xzvf latest.tar.gz
+	mkdir /var/www/html/wordpress
+	mv wordpress /var/www/html/wordpress
+	chown -R www-data:www-data /var/www/*
+	usermod -a -G www-data user
+	echo "CREATE DATABASE wpdatabase;" | mysql -u root -pqwerty
+        echo "CREATE USER 'user@localhost' IDENTIFIED BY 'qwerty';" | mysql -u root -pqwerty
+	echo "GRANT ALL PRIVILEGES ON wpdatabase.* to user@localhost IDENTIFIED BY 'qwerty';" | mysql -u root -pqwerty
+	echo "FLUSH PRIVILEGES;" | mysql -u root -pqwerty
+fi
